@@ -49,3 +49,5 @@ Hello, World!
 # /hello (path to resource on server)
 # HTTP/1.1 (HTTP version)
 
+# how can we ensure the web server works with different web frameworks? 
+# we can use WSGI (Web Server Gateway Interface)
