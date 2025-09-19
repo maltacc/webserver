@@ -10,7 +10,7 @@ HOST, PORT = '', 8888
 # a socket is an endpoint for sending or receiving data across a network
 # it's like a pipe that provides communication
 
-# steps to establishing a socket for web server: create scoket -> bind -> listen -> accept (connect)
+# steps to establishing a socket for web server: create scoket -> bind -> listen -> accept connections in a loop
 listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 listen_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 listen_socket.bind((HOST, PORT))
@@ -28,11 +28,13 @@ while True:
     # decode bytes representing the returned data
     print(request_data.decode('utf-8'))
 
-    # construct a simple HTTP response
+    # construct a simple HTTP response at
     # http:// (HTTP protocol) 
     # localhost: (host name)
     # 8888 (port number)
     # /hello (path to resource on server)
+
+    # HTTP/1.1 (HTTP version) 200 OK (status code) && Hello World (HTTP response body)
     http_response = b"""\
 HTTP/1.1 200 OK
 
